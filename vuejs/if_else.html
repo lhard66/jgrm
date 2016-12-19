@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>if else的使用</title>
+	<script src="../lib/vue/dist/vue.js"></script>
+</head>
+<body>
+<!-- 注意：下面的id不能写在body中 -->
+<div id="example">
+	<div v-if="num>5">
+		sorry
+	</div>
+	<div v-else>
+		not sorry	
+	</div>
+</div>
+	
+	<script>
+		var vue=new Vue({
+			el:'#example',
+			data:{
+				num:6
+			}
+		});
+	</script>
+</body>
+</html>
