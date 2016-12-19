@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>处理用户输入</title>
+	<script src="../lib/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app_5">
+		<p>{{message}}</p>
+		<button v-on:click="reverseMessage"> Reverse Message</button>
+	</div>
+	<div id="app_6">
+		<p>{{message}}</p>
+		<input v-model="message">
+	</div>
+
+	<script>
+		var app5=new Vue({
+			el:'#app_5',
+			data:{
+				message:'Hello Vue.js'
+			},
+			methods:{
+				reverseMessage:function(){
+					this.message=this.message.split('').reverse().join('');
+				}
+			}
+		});
+		var app6=new Vue({
+			el:'#app_6',
+			data:{
+				message:'hello vue!'
+			}
+		});
+	</script>
+</body>
+</html>
