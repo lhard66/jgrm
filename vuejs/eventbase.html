@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>事件处理器，监听事件</title>
+    <script src="../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example_1">
+        <button @click="counter+=1">add one</button>
+        <p>this button click {{counter}} times</p>
+    </div>
+    <hr>
+    <div id="example_2">
+        <button @click="greet">Greet</button>
+    </div>
+    <hr>
+    <div id="example_3">
+        <button @click="say('hi')">Say hi</button>
+        <button @click="say('what')">Say what</button>
+    </div>
+    <hr>
+    <div id="example_4">
+    	<button @click="warn('submitted yet',$event)">submit</button>
+    </div>
+    <script>
+    var example1 = new Vue({
+        el: '#example_1',
+        data: {
+            counter: 0
+        }
+    });
+    var example2 = new Vue({
+        el: '#example_2',
+        data: {
+            name: 'Vue.js name'
+        },
+        methods: {
+            greet: function(event) {
+                alert('hello-->' + this.name + '!');
+                alert(event.target.tagName);
+            }
+        }
+    });
+    var example3 = new Vue({
+        el: '#example_3',
+        methods: {
+            say: function(message) {
+                alert(message);
+            }
+        }
+    });
+    var example4=new Vue({
+    	el:'#example_4',
+    	methods:{
+    		warn:function(message,event){
+    			//此形参为原生的event事件对象
+    			if(event){
+    				event.preventDefault();
+    			}
+    			alert(message);
+    		}
+    	}
+    })
+    </script>
+</body>
+
+</html>
