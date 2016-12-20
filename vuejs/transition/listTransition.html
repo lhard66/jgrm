@@ -5,18 +5,20 @@
     <meta charset="utf-8">
     <title>列表过渡</title>
     <script src="../../lib/vue/dist/vue.js"></script>
+    <script src="../../lib/lodash/dist/lodash.js"></script>
     <style>
     	.list-item{
     		display: inline-block;
     		margin-right: 10px;
+			transition: all 1s;
     	}
-    	/*动画效果*/
-    	.list-enter-active,.list-leave-active{
-    		transition: all 2s;
-    	}
+    	/*动画效果*/    	
     	.list-enter,.list-leave-active{
     		opacity: 0;
     		transform: translateY(30px);
+    	}
+    	.list-leave-active{
+    		position: absolute;    		
     	}
     </style>
 </head>
@@ -25,6 +27,7 @@
     <div id="list_demo">
     	<button @click="add">Add</button>
     	<button @click="remove">Remove</button>
+    	<button @click="shufle">Shuffle</button>
     	<transition-group name="list" tag="p">
     		<span v-for="item in items" :key="item" class="list-item">{{item}}</span >
     	</transition-group>
@@ -47,6 +50,9 @@
             	},
             	remove:function(){
             		this.items.splice(this.randomIndex(),1);
+            	},
+            	shufle:function(){
+            		this.items=_.shuffle(this.items);
             	}
             }
 

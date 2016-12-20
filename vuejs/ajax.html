@@ -15,14 +15,15 @@
 		var vm= new Vue({
 			el:'#deom1',
 			data:{
-				jsdata:[]
+				jsdata:'23'
 			},
 			methods:{
 				show:function(){
 					var url='dataForAjax.json';
+					var obj=this;
 					this.$http.get(url).then((response)=>{
 						console.log(response);
-						this.$set('jsdata', response.bodyBlob);
+						obj.$set('jsdata', response.statusText);
 					});
 				}
 			}

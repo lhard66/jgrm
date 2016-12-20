@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>数值的过渡</title>
+    <script src="../../lib/vue/dist/vue.js"></script>
+    <script src="../../lib/tween.js/src/Tween.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <input v-model.number="number" type="number" step="20">
+        <p>{{animatedNumber}}</p>
+    </div>
+    <script>
+    (function(Vue) {
+        new Vue({
+            el: '#demo',
+            data: {
+                number: 0,
+                animatedNumber: 0
+            },
+            watch: {
+                number: function(newValue, oldValue) {
+                    var vm = this
+
+                    function animate(time) {
+                        requestAnimationFrame(animate)
+                        TWEEN.update(time)
+                    }
+                    new TWEEN.Tween({
+                            tweeningNumber: oldValue
+                        })
+                        .easing(TWEEN.Easing.Quadratic.Out)
+                        .to({
+                            tweeningNumber: newValue
+                        }, 500)
+                        .onUpdate(function() {
+                            vm.animatedNumber = this.tweeningNumber.toFixed(0)
+                        })
+                        .start()
+                    animate()
+                }
+            }
+        });
+    })(Vue);
+    </script>
+</body>
+
+</html>
