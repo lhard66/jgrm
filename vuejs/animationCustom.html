@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>自定义过渡</title>
+	<link rel="stylesheet" href="../lib/animate.css/animate.css">
+	<script src="../lib/vue/dist/vue.js"></script>
+</head>
+<body>
+<!-- <h1 class="animated infinite bounceOutRight">Example</h1> -->
+	<div id="example_3">
+		<button @click="show=!show">
+			toggle render
+		</button>
+		<transition
+			name="custom-classes-transition"
+			enter-active-class="animated tada"
+			leave-active-class="animated bounceOutRight"
+		>
+			<p v-if="show">hello</p>
+		</transition>
+	</div>
+	<script>
+		new Vue({
+			el:'#example_3',
+			data:{
+				show:true
+			}
+		});
+	</script>
+</body>
+</html>
