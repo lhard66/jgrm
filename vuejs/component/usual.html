@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>组件与render对比，之组件部分</title>
+    <script src="../../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <anchored-heading :level="1">hello world</anchored-heading>
+    <script type="text/x-template" id="anchored-heading-template">
+        <div>
+            <h1 v-if="level === 1">
+      			<slot></slot>
+    		</h1>
+            <h2 v-if="level === 2">
+      			<slot></slot>
+    		</h2>
+            <h3 v-if="level === 3">
+      			<slot></slot>
+    		</h3>
+            <h4 v-if="level === 4">
+      			<slot></slot>
+    		</h4>
+            <h5 v-if="level === 5">
+      			<slot></slot>
+    		</h5>
+            <h6 v-if="level === 6">
+      			<slot></slot>
+    		</h6>
+        </div>
+    </script>
+    <script>
+    Vue.component('anchored-heading', {
+        template: '#anchored-heading-template',
+        props: {
+            level: {
+                type: Number,
+                required: true
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
