@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>表单控件绑定</title>
+    <script src="../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="myform">
+        <form action="#">
+            <input v-model="message" placeholder="edit me">
+            <p>Message is:{{message}}</p>
+            <hr>
+            <textarea v-model="multipleMsg" placeholder="add multiple lines"></textarea>
+            <p style="white-space: pre">{{multipleMsg}}</p>
+            <hr>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{checked}}</label>
+            <hr>
+            <input type="checkbox" id="jack" value="jack" v-model="checkedNames">
+            <label for="jack">jack</label>
+            <input type="checkbox" id="lucy" value="lucy" v-model="checkedNames">
+            <label for="lucy">lucy</label>
+            <input type="checkbox" id="tom" value="tom" v-model="checkedNames">
+            <label for="tom">tom</label>
+            <br>
+            <span>checked names:{{checkedNames}}</span>
+            <hr>
+            <input type="radio" id="one" value="one" v-model="picked">
+            <label for="one">one</label>
+            <input type="radio" id="two" value="two" v-model="picked">
+            <label for="two">two</label>
+            <br>
+            <span>Picked:{{picked}}</span>
+            <hr>
+            <select v-model="selected">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <span>Selected:{{selected}}</span>
+            <hr>
+            <select v-model="selected" multiple>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected:{{selected}}</span>
+        </form>              
+    </div>
+
+	<hr>
+    <hr>  
+    <div id="advance">
+            <select v-model="selected">
+                <option v-for="option in options" :value="option.value">
+                    {{option.text}}
+                </option>
+            </select>
+            <span>Selected:{{selected}}</span>
+        </div>
+    <script>
+    var vm = new Vue({
+        el: '#myform',
+        data: {
+            message: '123',
+            multipleMsg: '',
+            checked: '',
+            checkedNames: [],
+            picked: '',
+            selected: 'A',
+            selected: ['A', 'B', 'C']
+        }
+    });
+    var advance = new Vue({
+        el: '#advance',
+        data: {
+            selected: 'A',
+            options: [
+	            {text: 'one',value: 'A'},
+	            {text: 'two',value: 'B'}, 
+	            {text: 'three',value: 'C'}
+            ]
+        }
+    });
+    </script>
+</body>
+
+</html>
