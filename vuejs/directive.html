@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>自定义指令</title>
+    <script src="../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="deom1">
+        <!-- <input v-focus> -->
+        <input type="text" v-focustwo>
+    </div>
+    <script>
+    //注意：注册的指令要写在Vue初始化的前面。
+    // 1.注册一个全局自定义指令 v-focus
+    Vue.directive('focus', {
+        // 当绑定元素插入到 DOM 中。
+        inserted: function(el) {
+            // 聚焦元素
+            el.focus();
+        }
+    });
+
+    new Vue({
+        el: '#deom1',
+        // 2.注册一个局部自定义指令 v-focus2        
+        directives: { //注意：此处单词最后要加s
+            focustwo: {
+                inserted: function(el) {
+                    el.focus();
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
