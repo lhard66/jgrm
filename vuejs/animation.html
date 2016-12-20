@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>过渡效果</title>
+    <script src="../lib/vue/dist/vue.js"></script>
+    <script src="../lib/vue-resource/dist/vue-resource.js"></script>
+    <style>
+	    .fade-enter-active,
+	    .fade-leave-active {
+	        transition: opacity .5s
+	    }
+	    
+	    .fade-enter,
+	    .fade-leave-active { 
+	        opacity: 0
+	    }
+    </style>
+
+<body>
+
+    <div id="demo1">
+        <button @click="show=!show">
+            Toggle132
+        </button>
+        <transition name="fade">
+            <p v-if="show">hello</p>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: '#demo1',
+        data: {
+            show: true
+        } 
+    });
+    </script>
+
+</head>
+</body>
+
+</html>

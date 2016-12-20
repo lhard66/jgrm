@@ -1,0 +1,28 @@
+ {
+     //1.键值对的形式
+     name: '张三',
+     age: 19,
+     gender: false,
+
+     //2.对象的形式
+     zhengfang: {
+         name: '张三',
+         age: 19,
+         gender: false
+     },
+
+     //3.数组的形式
+     ceshi: [{
+         name: '张三',
+         age: 19,
+         gender: false
+     }, {
+         name: '张三',
+         age: 19,
+         gender: false
+     }, {
+         name: '张三',
+         age: 19,
+         gender: false
+     }]
+ }
