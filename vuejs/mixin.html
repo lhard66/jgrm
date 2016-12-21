@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>混合</title>
+	<script src="../lib/vue/dist/vue.js"></script>
+</head>
+<body>
+	<span id='test'>{{name}}</span>
+	<script>
+	var myMixin={
+		created:function(){
+			this.hello();
+		},
+		methods:{
+			hello:function(){
+				console.log('hello from mixin!');
+			}
+		}
+	}
+	var Component=Vue.extend({
+		mixins:[myMixin]
+	});
+	var component=new Component();
+
+	</script>
+</body>
+</html>
