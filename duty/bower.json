@@ -1,0 +1,18 @@
+{
+  "name": "duty manage system",
+  "homepage": "https://github.com/lhard66/jgrm",
+  "authors": [
+    "Hero <lhard@qq.com>"
+  ],
+  "description": "duty",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib/",
+    "test",
+    "tests"
+  ]
+}
