@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>自定义指令，v-red变红</title>
+    <script src="../lib/vue/dist/vue.js"></script>    
+</head>
+
+<body>
+    <div id="box">
+        <span v-red>123</span>
+    </div>
+    <script>
+    //此处指令名为red，调用时需加上v，例如：v-red
+    Vue.directive('red', {
+        bind: function() {
+            this.el.style.background = 'red';
+
+        }
+    });
+
+    new Vue({
+        el: '#box',
+        data: {
+            msg: '这一行的字会变为红色'
+        }
+    });
+
+    </script>
+</body>
+
+</html>

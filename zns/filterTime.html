@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+	<meta charset="utf-8">
+	<title>自定义时间过滤器</title>
+	<script src="../lib/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="box">
+		{{a | date}}
+	</div>
+	<script>
+		Vue.filter('date',function(input){
+			var oDate=new Date(input);
+			return oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+		});
+		var vm=new Vue({
+			data:{
+				a:Date.now()
+			},
+			methods:{
+
+			}
+		}).$mount('#box');//搬运挂载。如需延迟挂载，可以在之后手动调用vm.$mount()方法来挂载。
+	</script>
+</body>
+</html>
