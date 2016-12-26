@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>父子组件的基本写法</title>
+    <script src="../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <h1>{{parName}}</h1>
+        <customcom></customcom>
+    </div>
+    <template id="testTem">
+        <div>
+            <h3>这是一个template，数据：{{msg}}</h3>
+            <soncom></soncom>
+        </div>
+    </template>
+    <template id="sonTem">
+        <h5>这是模板中的子模板</h5>
+    </template>
+    <script>
+    new Vue({
+        el: '#box',
+        data: {
+            parName: 'jim lucy'
+        },
+        components: {
+            'customcom': {
+                data() {
+                    return {
+                        msg: 'son data !!!'
+                    }
+                },
+                template: '#testTem',
+                components: {
+                    'soncom': {
+                    	//prop 是单向绑定的
+                    	props:{
+                    		'm'
+                    	}
+                    },
+                    template: '#sonTem'
+                }
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
