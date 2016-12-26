@@ -14,9 +14,8 @@
     <script>
     //此处指令名为red，调用时需加上v，例如：v-red
     Vue.directive('red', {
-        bind: function() {
-            this.el.style.background = 'red';
-
+        bind: function(el) {
+            el.style.background = 'red';
         }
     });
 
