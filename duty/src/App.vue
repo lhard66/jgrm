@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1 class="page-header">{{title}}</h1>  
+  <router-view></router-view>
 </div>
 </template>
 
