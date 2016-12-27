@@ -3,13 +3,13 @@
     <h1>{{msg}}</h1>
     <ul>
       <li>
-        <a href="#/home">主页</a>
+        <router-link to="/home">主页</router-link>
       </li>
       <li>
-        <a href="#/news">新闻</a>
+        <router-link to="/news">新闻</router-link>
       </li>
       <li>
-        <a href="#/hello">欢迎</a>
+        <router-link to="/hello">欢迎</router-link>
       </li>
     </ul>
     <div>

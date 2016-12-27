@@ -10,8 +10,8 @@ import '../node_modules/animate.css/animate.css'
 Vue.use(VueRouter)
 const router = new VueRouter(routerConfig)
 new Vue({
-  router: router,
   el: '#app',
+  router: router,
   template: '<App/>',
   components: { App }
 })
