@@ -8,7 +8,7 @@ const router=new VueRouter({
 	routes
 });
 //注意：下面的use不能少，否则会报错。
-Vue.use(VueRouter);
+Vue.use(router);
 
 new Vue({
 	router,
