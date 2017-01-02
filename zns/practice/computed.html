@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>计算机属性，相当于angular的$watch</title>
+    <script src="../../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <p>a is {{a}}</p>
+        <p>b is {{b}}</p>
+    </div>
+    <script>
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            a: 1
+        },
+        computed: {
+            b: {
+                get: function() {
+                    return this.a + 2
+                },
+                set: function(val) {
+                    this.a = val
+                }
+            }
+        }
+    })
+    document.onclick = function() {
+        vm.b = 10;
+    }
+    </script>
+</body>
+
+</html>
