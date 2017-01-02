@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+    <meta charset="utf-8">
+    <title>vue动画的基本使用</title>
+    <style>
+    .content {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        margin-top: 20px;
+    }
+    
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: 1s all ease;
+    }
+    
+    .fade-enter-active {
+        opacity: 1;
+        width: 300px;
+        height: 300px;
+    }
+    
+    .fade-enter {
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .fade-leave-active {
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+    <script src="../../lib/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button type="button" @click="show=!show">点击切换动画</button>
+        <transition name="fade" @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter" @before-leave="beforeLeave" @leave="leave" @after-leave="afterLeave">
+            <div class="content" v-show="show"></div>
+        </transition>
+    </div>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            show: false
+        },
+        methods: {
+            //动画相关的事件
+            beforeEnter(el) {
+                console.log('动画enter之前')
+            },
+            enter(el) {
+                console.log('动画enter进入')
+            },
+            afterEnter(el) {
+                console.log('动画进入之后')
+            },
+            beforeLeave(el) {
+                console.log('动画leave之前')
+            },
+            leave(el) {
+                console.log('动画leave')
+            },
+            afterLeave(el) {
+                console.log('动画leave之后')
+            }
+
+        }
+    })
+    </script>
+</body>
+
+</html>
