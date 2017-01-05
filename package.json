@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/lhard66/jgrm/issues"
   },
-  "homepage": "https://github.com/lhard66/jgrm#readme"
+  "homepage": "https://github.com/lhard66/jgrm#readme",
+  "dependencies": {
+    "element-ui": "^1.1.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.26.1"
+  }
 }
