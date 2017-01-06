@@ -1,5 +1,5 @@
 {
-  "name": "elemeui",
+  "name": "elemui_load",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Hero <lhard@qq.com>",
@@ -9,12 +9,14 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "element-ui": "^1.1.2",
     "vue": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
+    "babel-plugin-component": "^0.8.0",
     "babel-preset-es2015": "^6.0.0",
     "cross-env": "^3.0.0",
     "css-loader": "^0.25.0",
