@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loading></loading>
     <h1>{{msg}}</h1>
     <ul>
       <li>
@@ -14,24 +15,20 @@
     </ul>
     <div>
       <transition enter-active-class="animated zoomInLeft" leave-active-class="animated zoomOutRight">
-
-      <router-view></router-view>
+        <router-view></router-view>
       </transition>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
       msg: 'welcome to vue world.'
     }
   }
 }
 </script>
-
 <style>
-
 </style>

@@ -7,6 +7,9 @@ import routerConfig from './router.config.js'
 
 import '../node_modules/animate.css/animate.css'
 
+import loading from './components/loading/'
+
+Vue.use(loading)
 Vue.use(VueRouter)
 const router = new VueRouter(routerConfig)
 new Vue({
