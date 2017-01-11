@@ -9,8 +9,12 @@
 
 <body>
   <div id="app">
-    <span>{{msg}}</span><br>
+    <span>{{msg}}</span>
+    <br>
     <child my-message="hello!ltq cool"></child>
+    <hr>
+    <input type="text" v-model="msg">
+    <info :input-msg="msg"></info>
   </div>
   <script>
   Vue.component('child', {
@@ -20,10 +24,17 @@
     // 同样也可以在 vm 实例中像 “this.message” 这样使用
     template: '<span>{{ myMessage }}</span>'
   });
+
   new Vue({
     el: '#app',
     data: {
       msg: 'abc'
+    },
+    components: {//此层是可以局部注册多个组件，info是其中之一。与此并列的地方可以继续注册局部组件。
+      'info': {//注册局部组件的内部可以写此组件的相关定义和设置。
+        template: '<div>{{inputMsg}}!66666</div>',
+        props: ['inputMsg']
+      }
     }
   })
   </script>
