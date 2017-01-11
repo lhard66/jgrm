@@ -19,7 +19,9 @@
   <script>
   Vue.component('child', {
     // 声明 props
-    props: ['myMessage'],
+    props: [
+      'myMessage',      
+    ],
     // 就像 data 一样，prop 可以用在模板内
     // 同样也可以在 vm 实例中像 “this.message” 这样使用
     template: '<span>{{ myMessage }}</span>'
@@ -30,8 +32,8 @@
     data: {
       msg: 'abc'
     },
-    components: {//此层是可以局部注册多个组件，info是其中之一。与此并列的地方可以继续注册局部组件。
-      'info': {//注册局部组件的内部可以写此组件的相关定义和设置。
+    components: { //此层是可以局部注册多个组件，info是其中之一。与此并列的地方可以继续注册局部组件。
+      'info': { //注册局部组件的内部可以写此组件的相关定义和设置。
         template: '<div>{{inputMsg}}!66666</div>',
         props: ['inputMsg']
       }
